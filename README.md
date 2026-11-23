@@ -37,7 +37,8 @@ zip already contains the same files in its `wwwroot` folder and serves them itse
 nothing extra.
 
 The separate copy is for hosting the console behind your own web server or reverse proxy (IIS, nginx). In that case,
-send `/api` and `/hubs` (SignalR WebSockets) to the SentinelDesk server, and send every other path to `index.html`.
+send `/api`, `/hubs` (SignalR WebSockets) and `/agent` (agent traffic, if it uses the same hostname) to the
+SentinelDesk server, and send every other path to `index.html`.
 The console does not work without the SentinelDesk server.
 
 ## 1. Install the server
