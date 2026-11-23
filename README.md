@@ -30,6 +30,16 @@ All files are in [releases/](releases/).
 | `SentinelDesk-Setup.exe` | One-file agent installer for PCs. It asks for the server address, token and uninstall key. |
 | `SentinelDesk-Agent-1.2.0.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
 
+### Web console
+
+[web-console/](web-console/) holds the built web console: the admin dashboard you open in the browser. The server
+zip already contains the same files in its `wwwroot` folder and serves them itself, so a normal install needs
+nothing extra.
+
+The separate copy is for hosting the console behind your own web server or reverse proxy (IIS, nginx). In that case,
+send `/api` and `/hubs` (SignalR WebSockets) to the SentinelDesk server, and send every other path to `index.html`.
+The console does not work without the SentinelDesk server.
+
 ## 1. Install the server
 
 1. Extract `SentinelDesk-Server-1.2.0-win-x64.zip` to the server, for example `C:\SentinelDesk`.
