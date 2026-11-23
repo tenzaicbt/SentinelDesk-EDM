@@ -127,6 +127,10 @@ for 30 minutes and the console is alerted.
     closed, and the user sees a short notice.
   - *USB drives:* pen drives and external disks cannot be used; mice, keyboards and printers still work.
   - Every attempt is recorded on the computer's page and can raise an alert. Uninstalling removes all blocks.
+  - *Options:* apply for a while (1 hour, today, until a date); exceptions for single computers or branches; schedules
+    (days and times); only some users or groups; *Block*, *Warn* or *Log only*; USB read-only and allowed drives.
+  - *When a user needs something:* they request access from the tray and you approve it with one click, or give them a
+    one-time unlock code that works offline. An emergency *Unblock all* switch stops all blocking at once.
 - **Reconnect from the tray:** if a computer loses its connection, an administrator can paste a new enrollment token
   in the tray menu (*Reconnect to server*) after approving the Windows administrator prompt.
 - **Detailed device view:** live gauges, hardware, software history, applications, bandwidth, websites, sessions,

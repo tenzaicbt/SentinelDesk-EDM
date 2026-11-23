@@ -23,6 +23,25 @@
 - **Reconnect from the tray.** If a computer loses its connection to the server, an administrator can choose
   **Reconnect to server (administrator)** in the tray menu, approve the Windows administrator prompt and paste a new
   enrollment token from *Agent management*. If it fails, the computer keeps its current connection.
+- **Advanced blocking options.**
+  - *Temporary block:* apply a policy for 1 hour, until the end of the day or until a date. It stops by itself.
+  - *Exceptions and temporary unblock:* choose computers or branches where a policy does not apply, for the whole
+    policy or one website or program, always or for a while. An exception beats a branch-wide block.
+  - *Schedules:* a policy can apply only on chosen days and times, for example working hours.
+  - *Users and groups:* a policy can apply only to some users or Windows groups, for example `Cashiers`.
+  - *Block, Warn or Log only:* *Warn* allows it but tells the user and records it; *Log only* just records it, so you
+    can see the effect before blocking.
+  - *USB:* a read-only mode (files can be opened, nothing can be copied to a drive) and a list of allowed drives
+    (company-issued drives by serial number). Drives that are already plugged in are switched off, and back on when
+    unblocked.
+  - *Request access:* users can ask for a blocked website, program or USB drive from the tray, or from the "blocked"
+    message. Requests appear on the *Policies* page with **Allow 1 hour / Today / Always / Decline**, and the user is
+    told the answer.
+  - *Offline unlock code:* on a computer's page, create a one-time code that pauses blocking for 1, 4 or 8 hours. The
+    user types it in the tray (*Enter unlock code*). It works without a connection.
+  - *Emergency "Unblock all":* stops every block policy at once for all computers or one branch, for a while or until
+    turned off. Only Super Admins can use it, after confirming their password (and MFA code).
+  - Timed rules follow the server's clock, so changing the computer's clock does not help.
 
 ### Improved
 
