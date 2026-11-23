@@ -1,5 +1,59 @@
 # Changelog
 
+## 1.2.1 — 2026-11-23
+
+### New
+
+- **Block websites, applications and USB drives.** *Policies* now has three kinds of policy: **Block websites**,
+  **Block applications** and **Block USB drives**. Apply each one to all computers, a branch or department, or single
+  computers. A computer gets every policy that applies to it, and changes reach online computers within seconds.
+  Open browsers are told to reload the block list; a browser that was already open before the first block on a
+  computer may need to be restarted once.
+  - *Websites:* type an address (`tiktok.com` blocks the whole site, `youtube.com/shorts` only that part) or tick a
+    whole type of website (Social, Messaging, Streaming, Gaming, Shopping, News, AI Tools, Cloud Storage). Chrome,
+    Edge, Brave and Firefox show a "blocked by your organisation" page; other apps cannot reach the site. The video
+    and script domains of big sites are blocked with them, so an open tab stops too.
+  - *Applications:* type a program name (`steam.exe`), or use `*` to match many (`*torrent*`). Windows refuses to
+    start the program, a copy that is already open is closed, and the user is told why.
+  - *USB drives:* pen drives and external hard disks cannot be used. Mice, keyboards and printers still work.
+  - Every attempt to open something blocked is recorded on the computer's page. Turn on the alert rule
+    *Blocked application or website* to be notified.
+  - If someone changes the blocks on a computer, they are put back within a minute and a tamper alert is raised.
+  - Uninstalling SentinelDesk removes every block.
+- **Reconnect from the tray.** If a computer loses its connection to the server, an administrator can choose
+  **Reconnect to server (administrator)** in the tray menu, approve the Windows administrator prompt and paste a new
+  enrollment token from *Agent management*. If it fails, the computer keeps its current connection.
+
+### Improved
+
+- **Simpler Policies pages:** one list grouped by type, a separate page to create a policy, and one page per policy
+  that shows only its own settings.
+- **Cleaner Overview page:** one bar colour, a share bar for website categories, operating systems and agent
+  versions combined in one card, aligned alerts and correct plurals ("1 PC", "2 PCs").
+- **Simpler new token form:** just a name and where to place the devices. Tokens work for 30 days and up to
+  500 devices, and devices are approved automatically.
+
+### Changed
+
+- Monitoring settings (what is recorded, privacy options, working hours) are no longer edited in the console.
+  Every computer uses the standard settings. Blocking that earlier versions kept inside monitoring policies is moved
+  into block policies automatically, on the same computers.
+
+### Upgrade
+
+1. **Server:** stop the `SentinelDeskServer` service, back up `appsettings.json`, extract
+   `SentinelDesk-Server-1.2.1-win-x64.zip` over the old folder, put your `appsettings.json` back and start the
+   service. Your `data\` folder (devices and history) is kept.
+2. **Agents:** upload `SentinelDesk-Agent-1.2.1.zip` in *Agent management → Releases* and roll it out.
+
+### Downloads
+
+| File | Use it to |
+|---|---|
+| `SentinelDesk-Server-1.2.1-win-x64.zip` | Install or upgrade the server and web console |
+| `SentinelDesk-Setup.exe` | Install the agent on PCs |
+| `SentinelDesk-Agent-1.2.1.zip` | Deploy the agent by script, or upgrade agents from *Agent management → Releases* |
+
 ## 1.2.0 — 2026-11-23
 
 First public release of SentinelDesk: the server with its web console, the agent and the office installer.

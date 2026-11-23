@@ -6,7 +6,7 @@ SentinelDesk puts a protected Windows tray agent on every company PC and laptop 
 with a real-time view of the whole fleet. You can see device health, application and internet usage, hardware and
 software inventory, USB activity and security posture, and get alerts when something changes.
 
-**Version 1.2.0** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
+**Version 1.2.1** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
 [What's new](CHANGELOG.md)
 
 ## Screenshots
@@ -27,9 +27,9 @@ All files are in [releases/](releases/).
 
 | File | What it is |
 |---|---|
-| `SentinelDesk-Server-1.2.0-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
+| `SentinelDesk-Server-1.2.1-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
 | `SentinelDesk-Setup.exe` | One-file agent installer for PCs. It asks for the server address, token and uninstall key. |
-| `SentinelDesk-Agent-1.2.0.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
+| `SentinelDesk-Agent-1.2.1.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
 
 ### Web console
 
@@ -44,7 +44,7 @@ The console does not work without the SentinelDesk server.
 
 ## 1. Install the server
 
-1. Extract `SentinelDesk-Server-1.2.0-win-x64.zip` to the server, for example `C:\SentinelDesk`.
+1. Extract `SentinelDesk-Server-1.2.1-win-x64.zip` to the server, for example `C:\SentinelDesk`.
 2. Edit `appsettings.json`:
    - `Server:PublicUrl`: the address your offices will use, for example `https://monitor.company.lk`
    - `Kestrel`: the HTTPS certificate for that hostname
@@ -90,7 +90,7 @@ Create enrollment tokens in the console under **Agent management → New token**
 
 ### Scripted deployment (GPO / Intune / SCCM)
 
-Extract `SentinelDesk-Agent-1.2.0.zip` and run this elevated:
+Extract `SentinelDesk-Agent-1.2.1.zip` and run this elevated:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File install-agent.ps1 -ServerUrl https://monitor.company.lk `
@@ -117,15 +117,25 @@ for 30 minutes and the console is alerted.
   for stops, kills, changed files and changed service settings. Devices that go silent for more than 24 h raise an alert.
 - **Strong encryption:** TLS 1.2/1.3 with per-device certificates, AES-256-GCM encrypted data and signed policies,
   commands and updates.
-- **Central policies:** collectors, intervals, title masking, excluded apps and domains, working hours and USB
-  blocking, assigned to offices or devices and pushed instantly.
+- **Block policies:** block websites, applications and USB drives, applied to all computers, a branch or department,
+  or single computers. A computer gets every policy that applies to it, and changes reach online computers within
+  seconds.
+  - *Websites:* by address (`tiktok.com`, or one section such as `youtube.com/shorts`) or by type (Social, Streaming,
+    Gaming…). Chrome, Edge, Brave and Firefox show a "blocked by your organisation" page, and other apps cannot reach
+    the site. The video and script domains of big sites are blocked too.
+  - *Applications:* by program name (`steam.exe`, or `*torrent*`). Windows refuses to start them, a running copy is
+    closed, and the user sees a short notice.
+  - *USB drives:* pen drives and external disks cannot be used; mice, keyboards and printers still work.
+  - Every attempt is recorded on the computer's page and can raise an alert. Uninstalling removes all blocks.
+- **Reconnect from the tray:** if a computer loses its connection, an administrator can paste a new enrollment token
+  in the tray menu (*Reconnect to server*) after approving the Windows administrator prompt.
 - **Detailed device view:** live gauges, hardware, software history, applications, bandwidth, websites, sessions,
   USB, security posture, timeline and remote commands.
 - **Island-wide:** agents connect outbound over HTTPS only, keep working offline, and appear on a branch map with an
   organisation → region → branch → department hierarchy.
 - **Console:** dashboard, live view, alerts and rules (email / webhook), reports with CSV export, admin users with
   roles and MFA, audit log, and light and dark themes.
-- **Device location (optional):** off by default. When a policy enables it, devices appear on the map with a 30-day trail.
+- **Device location (optional):** off by default. When turned on, devices appear on the map with a 30-day trail.
 
 ## Privacy
 
