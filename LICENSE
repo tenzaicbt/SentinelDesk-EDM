@@ -1,0 +1,56 @@
+SentinelDesk — Endpoint Monitoring & Management
+Proprietary Software License
+
+Copyright (c) 2026 Yohan Koshala. All rights reserved.
+
+Author and owner:  Yohan Koshala
+GitHub:            https://github.com/tenzaicbt
+Website:           https://www.lordefx.com
+
+1. Ownership
+   SentinelDesk, including its source code, object code, installers, agent, server, web
+   console, documentation, logos, artwork and all related materials (the "Software"), was
+   created and developed by Yohan Koshala and is his exclusive property. The Software is
+   licensed, not sold.
+
+2. No rights without permission
+   No part of the Software may be copied, modified, merged, published, distributed,
+   sublicensed, sold, rented, leased, hosted as a service, reverse engineered, decompiled or
+   disassembled, in whole or in part, except as expressly permitted in a written license
+   agreement signed by Yohan Koshala.
+
+3. Licensed use
+   Use of the Software is permitted only for a person or organisation that has received a
+   written license from Yohan Koshala, and only within the scope, number of devices, term and
+   locations stated in that license. Any use beyond that scope is unlicensed.
+
+4. Notices and branding
+   You may not remove, alter or obscure any copyright notice, author credit, trademark, logo
+   or license text contained in the Software, its user interface or its documentation.
+   "SentinelDesk" and the SentinelDesk logos are marks of Yohan Koshala.
+
+5. Confidentiality
+   The source code and design of the Software are confidential. Anyone given access to them
+   must keep them confidential and use them only to perform licensed work.
+
+6. Third-party components
+   The Software includes open-source components (for example .NET, ASP.NET Core, React,
+   Tailwind CSS, Recharts, Leaflet, Microsoft TraceEvent, Lucide icons, the Geist font and the
+   NSIS installer framework). Each is used under its own license, which continues to apply to
+   that component. This license does not restrict rights granted by those licenses.
+
+7. Disclaimer of warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+   PURPOSE AND NON-INFRINGEMENT, EXCEPT AS EXPRESSLY STATED IN A SIGNED LICENSE AGREEMENT.
+
+8. Limitation of liability
+   TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL YOHAN KOSHALA BE LIABLE FOR ANY
+   INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES, OR FOR LOSS OF DATA, PROFITS OR
+   BUSINESS, ARISING FROM THE USE OF OR INABILITY TO USE THE SOFTWARE.
+
+9. Termination
+   Any license terminates automatically if its terms or the terms above are breached. On
+   termination, all use must stop and all copies of the Software must be destroyed.
+
+Licensing enquiries: https://www.lordefx.com  ·  https://github.com/tenzaicbt
