@@ -6,7 +6,8 @@ SentinelDesk puts a protected Windows tray agent on every company PC and laptop 
 with a real-time view of the whole fleet. You can see device health, application and internet usage, hardware and
 software inventory, USB activity and security posture, and get alerts when something changes.
 
-**Version 1.2.0** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server
+**Version 1.2.0** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
+[What's new](CHANGELOG.md)
 
 ## Screenshots
 
