@@ -10,10 +10,12 @@ First public release of SentinelDesk: the server with its web console, the agent
   Devices then appear as dots on the Overview map, and the device page gets a *Location* tab with the accuracy
   radius and a 24 hour, 7 day or 30 day trail. History is kept for 30 days. HR viewers cannot see it, and every
   trail view is recorded in the audit log.
+- **Per-site data usage.** Download, upload and total for each website, plus a live *Using the internet now* view.
 - **Permanently delete devices** from the console, for retired or replaced PCs.
 - **Live activity in near real time.** While you watch a device, its foreground app, download and upload, CPU and
   memory update every half second.
-- **Device Details tab** and a more compact console layout that fits more on screen.
+- **A simpler device page** with six tabs: Live activity, Details, Internet usage, Browsing, Network and Location.
+  The console layout is also more compact and fits more on screen.
 - **Enrollment tokens show the devices each one enrolled,** with live online status. You can copy active tokens
   again at any time, and older tokens can get a new value without affecting devices already enrolled. Every copy
   is recorded in the audit log.
