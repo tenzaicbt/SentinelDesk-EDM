@@ -6,7 +6,7 @@ SentinelDesk puts a protected Windows tray agent on every company PC and laptop 
 with a real-time view of the whole fleet. You can see device health, application and internet usage, hardware and
 software inventory, USB activity and security posture, and get alerts when something changes.
 
-**Version 1.2.3** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
+**Version 1.2.4** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
 [What's new](CHANGELOG.md)
 
 ## Screenshots
@@ -27,9 +27,9 @@ All files are in [releases/](releases/).
 
 | File | What it is |
 |---|---|
-| `SentinelDesk-Server-1.2.3-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
-| `SentinelDesk-Setup.exe` | One-file agent installer for PCs. It asks for the server address, token and uninstall key. |
-| `SentinelDesk-Agent-1.2.3.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
+| `SentinelDesk-Server-1.2.4-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
+| `SentinelDesk-Setup.exe` | One-file setup wizard for PCs (installs and removes the agent). It asks for the server address, token and uninstall key. |
+| `SentinelDesk-Agent-1.2.4.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
 
 ### Web console
 
@@ -41,7 +41,7 @@ server and allow WebSockets: the console keeps a live connection open while it i
 
 ## 1. Install the server
 
-1. Extract `SentinelDesk-Server-1.2.3-win-x64.zip` to the server, for example `C:\SentinelDesk`.
+1. Extract `SentinelDesk-Server-1.2.4-win-x64.zip` to the server, for example `C:\SentinelDesk`.
 2. Edit `appsettings.json`:
    - `Server:PublicUrl`: the address your offices will use, for example `https://monitor.company.lk`
    - `Kestrel`: the HTTPS certificate for that hostname
@@ -54,9 +54,12 @@ server and allow WebSockets: the console keeps a live connection open while it i
    sc.exe start SentinelDeskServer
    ```
 
-4. Open the console (`https://<your-server>:5443`, or `http://localhost:5080` on the server itself) and sign in as
+4. For the office installers in the console: create an `installer` folder next to `SentinelDesk.Server.exe` and copy
+   `releases/SentinelDesk-Setup.exe` into it (for example `C:\SentinelDesk\installer\SentinelDesk-Setup.exe`). After an
+   upgrade, replace it with the new version's file.
+5. Open the console (`https://<your-server>:5443`, or `http://localhost:5080` on the server itself) and sign in as
    `admin` / `ChangeMe@2026`. You must set a new password at first sign-in.
-5. Open only port 443 (agents + console) through your firewall or reverse proxy.
+6. Open only port 443 (agents + console) through your firewall or reverse proxy.
 
 All data and key material is stored in the `data\` folder next to the server. **Back up that folder regularly.**
 
@@ -73,7 +76,11 @@ All data and key material is stored in the `data\` folder next to the server. **
    SentinelDesk-Setup-<Branch>.exe /quiet
    ```
 
-   Exit code `0` means it installed. The log is in `C:\Windows\Temp\SentinelDesk-Install.log`.
+   Exit code `0` means it installed. The logs are in `C:\Windows\Temp\SentinelDesk-Setup.log` and
+   `SentinelDesk-Install.log`. If something goes wrong, the setup undoes the install.
+
+The setup is a Windows 11-style wizard that needs nothing else installed: it uses .NET Framework 4.8, which is part of
+Windows 10 and 11.
 
 ### Generic installer
 
@@ -87,7 +94,7 @@ Create enrollment tokens in the console under **Agent management → New token**
 
 ### Scripted deployment (GPO / Intune / SCCM)
 
-Extract `SentinelDesk-Agent-1.2.3.zip` and run this elevated:
+Extract `SentinelDesk-Agent-1.2.4.zip` and run this elevated:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File install-agent.ps1 -ServerUrl https://monitor.company.lk `
@@ -98,6 +105,12 @@ powershell -ExecutionPolicy Bypass -File install-agent.ps1 -ServerUrl https://mo
 
 Upload `SentinelDesk-Agent-<version>.zip` in **Agent management → Releases**, then roll it out in stages:
 10 % → 50 % → 100 %. Raising the percentage only adds devices; devices that are already upgraded stay upgraded.
+
+**With the office installer:** run a newer office installer (downloaded from the console) on a computer with an older
+agent and it upgrades it. The agent checks that the new version is signed by your server, keeps a copy of the current
+version and goes back to it automatically if the new version does not start. Silent: `/quiet`; exit code `0` means it
+upgraded, `20` that it went back to the previous version. The generic `SentinelDesk-Setup.exe` cannot upgrade
+(exit code `12`); use Releases or an office installer.
 
 ## 4. Uninstall the agent
 

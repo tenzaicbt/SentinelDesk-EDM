@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.2.4 — 2026-11-27
+
+### New
+
+- **New setup wizard.** `SentinelDesk-Setup.exe` is now a Windows 11-style setup wizard (Welcome, License,
+  Connection, Install, Finish) that follows the Windows light or dark setting. It uses .NET Framework 4.8, which is
+  part of Windows 10 and 11, so nothing else has to be installed first. The silent switches (`/quiet`, `/server`,
+  `/token`, `/key`, `/pin`, `/tofu`) work as before, and a failed install is still undone automatically.
+- **Upgrade with the office installer.** Run a newer office installer from the console on a computer with an older
+  agent, and it upgrades the agent instead of stopping. The agent checks that the new version is signed by your
+  management server, keeps a copy of the current version, and goes back to it automatically if the new version does
+  not start. The computer keeps its connection and its data. Office installers downloaded from the console can do
+  this; the generic `SentinelDesk-Setup.exe` cannot, so a copied or modified file cannot replace the agent.
+- **New uninstaller.** *Apps & features → Uninstall* opens the same wizard in removal mode. It still needs the
+  Uninstall Key or a one-time code for that computer.
+
 ## 1.2.3 — 2026-11-27
 
 ### New
