@@ -6,7 +6,7 @@ SentinelDesk puts a protected Windows tray agent on every company PC and laptop 
 with a real-time view of the whole fleet. You can see device health, application and internet usage, hardware and
 software inventory, USB activity and security posture, and get alerts when something changes.
 
-**Version 1.2.4** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
+**Version 1.2.2** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
 [What's new](CHANGELOG.md)
 
 ## Screenshots
@@ -27,9 +27,9 @@ All files are in [releases/](releases/).
 
 | File | What it is |
 |---|---|
-| `SentinelDesk-Server-1.2.4-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
+| `SentinelDesk-Server-1.2.2-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
 | `SentinelDesk-Setup.exe` | One-file setup wizard for PCs (installs and removes the agent). It asks for the server address, token and uninstall key. |
-| `SentinelDesk-Agent-1.2.4.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
+| `SentinelDesk-Agent-1.2.2.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
 
 ### Web console
 
@@ -41,7 +41,7 @@ server and allow WebSockets: the console keeps a live connection open while it i
 
 ## 1. Install the server
 
-1. Extract `SentinelDesk-Server-1.2.4-win-x64.zip` to the server, for example `C:\SentinelDesk`.
+1. Extract `SentinelDesk-Server-1.2.2-win-x64.zip` to the server, for example `C:\SentinelDesk`.
 2. Edit `appsettings.json`:
    - `Server:PublicUrl`: the address your offices will use, for example `https://monitor.company.lk`
    - `Kestrel`: the HTTPS certificate for that hostname
@@ -94,7 +94,7 @@ Create enrollment tokens in the console under **Agent management → New token**
 
 ### Scripted deployment (GPO / Intune / SCCM)
 
-Extract `SentinelDesk-Agent-1.2.4.zip` and run this elevated:
+Extract `SentinelDesk-Agent-1.2.2.zip` and run this elevated:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File install-agent.ps1 -ServerUrl https://monitor.company.lk `

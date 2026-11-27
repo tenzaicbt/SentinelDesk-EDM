@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.4 — 2026-11-27
+## 1.2.2 — 2026-11-27
 
 ### New
 
@@ -15,37 +15,19 @@
   this; the generic `SentinelDesk-Setup.exe` cannot, so a copied or modified file cannot replace the agent.
 - **New uninstaller.** *Apps & features → Uninstall* opens the same wizard in removal mode. It still needs the
   Uninstall Key or a one-time code for that computer.
-
-## 1.2.3 — 2026-11-27
-
-### New
-
-- **Slower live view rates.** **Agent management → Live data** now also offers every 30 seconds, every minute and
-  every 2 minutes, for very slow or metered links. Picking a new rate takes effect on computers straight away. These
-  three rates need agents on 1.2.3; older agents send every 5 seconds until they are upgraded.
-
-### Improved
-
-- **Tray menu in the style of the web console.** The tray menu now has the same header as the console's sidebar, the
-  computer's status in a rounded chip with a coloured dot, and the item under the mouse highlighted in SentinelDesk
-  orange, in light and dark.
-- Live rates are shown as "500 ms", "30 s" or "1 min" on the device page.
-
-## 1.2.2 — 2026-11-27
-
-### New
-
 - **Live view refresh rate.** In **Agent management → Live data**, Super Admins choose how often a computer sends
-  live data while someone has its device page open: every 0.5 seconds (as before), 1, 2 or 5 seconds, or *Off*
-  (the page then updates with heartbeats). Each choice shows the expected bandwidth, the change applies at once,
-  including to pages that are already open, and it is recorded in the audit log. Use a slower rate on busy or
-  metered branch links.
-- **New tray menu.** The tray menu has a modern look: the SentinelDesk logo with the computer's connection status at
-  the top, an icon for each item, rounded corners on Windows 11, and light or dark colours that follow the Windows
-  setting.
+  live data while someone has its device page open: every 0.5 seconds (as before), 1, 2, 5 or 30 seconds, every
+  minute or every 2 minutes, or *Off* (the page then updates with heartbeats). Each choice shows the expected
+  bandwidth, the change takes effect on computers straight away, including pages that are already open, and it is
+  recorded in the audit log. Use a slower rate on busy or metered branch links. The 30-second, 1-minute and 2-minute
+  rates need this version of the agent; older agents send every 5 seconds until they are upgraded.
+- **New tray menu in the style of the web console.** The same header as the console's sidebar, the computer's status
+  in a rounded chip with a coloured dot, an icon for each item, the item under the mouse highlighted in SentinelDesk
+  orange, rounded corners on Windows 11, and light or dark colours that follow the Windows setting.
 
 ### Improved
 
+- Live rates are shown as "500 ms", "30 s" or "1 min" on the device page.
 - **Web console.** The console has been rebuilt and is now part of the server itself. It looks and works as before,
   and it no longer needs a separate set of web files.
 - **Date and time pickers** in reports, schedules and "until a date" choices now follow the console's light and dark
