@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.2.3 — 2026-11-27
+
+### New
+
+- **Slower live view rates.** **Agent management → Live data** now also offers every 30 seconds, every minute and
+  every 2 minutes, for very slow or metered links. Picking a new rate takes effect on computers straight away. These
+  three rates need agents on 1.2.3; older agents send every 5 seconds until they are upgraded.
+
+### Improved
+
+- **Tray menu in the style of the web console.** The tray menu now has the same header as the console's sidebar, the
+  computer's status in a rounded chip with a coloured dot, and the item under the mouse highlighted in SentinelDesk
+  orange, in light and dark.
+- Live rates are shown as "500 ms", "30 s" or "1 min" on the device page.
+
 ## 1.2.2 — 2026-11-27
 
 ### New
