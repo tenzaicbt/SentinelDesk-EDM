@@ -6,7 +6,7 @@ SentinelDesk puts a protected Windows tray agent on every company PC and laptop 
 with a real-time view of the whole fleet. You can see device health, application and internet usage, hardware and
 software inventory, USB activity and security posture, and get alerts when something changes.
 
-**Version 1.2.1** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
+**Version 1.2.2** · Windows 10/11 (x64) agents · Windows Server or Windows 10/11 for the server ·
 [What's new](CHANGELOG.md)
 
 ## Screenshots
@@ -27,24 +27,21 @@ All files are in [releases/](releases/).
 
 | File | What it is |
 |---|---|
-| `SentinelDesk-Server-1.2.1-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
+| `SentinelDesk-Server-1.2.2-win-x64.zip` | The central server: web console and agent API. Self-contained, so no .NET install is needed. |
 | `SentinelDesk-Setup.exe` | One-file agent installer for PCs. It asks for the server address, token and uninstall key. |
-| `SentinelDesk-Agent-1.2.1.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
+| `SentinelDesk-Agent-1.2.2.zip` | Agent package for scripted deployment (GPO / Intune / SCCM) and for upgrades from the console. |
 
 ### Web console
 
-[web-console/](web-console/) holds the built web console: the admin dashboard you open in the browser. The server
-zip already contains the same files in its `wwwroot` folder and serves them itself, so a normal install needs
-nothing extra.
+The web console is built into the server: install the server and open its address in a browser. There is nothing
+else to install or host.
 
-The separate copy is for hosting the console behind your own web server or reverse proxy (IIS, nginx). In that case,
-send `/api`, `/hubs` (SignalR WebSockets) and `/agent` (agent traffic, if it uses the same hostname) to the
-SentinelDesk server, and send every other path to `index.html`.
-The console does not work without the SentinelDesk server.
+To put the console behind your own web server or reverse proxy (IIS, nginx), forward every path to the SentinelDesk
+server and allow WebSockets: the console keeps a live connection open while it is used.
 
 ## 1. Install the server
 
-1. Extract `SentinelDesk-Server-1.2.1-win-x64.zip` to the server, for example `C:\SentinelDesk`.
+1. Extract `SentinelDesk-Server-1.2.2-win-x64.zip` to the server, for example `C:\SentinelDesk`.
 2. Edit `appsettings.json`:
    - `Server:PublicUrl`: the address your offices will use, for example `https://monitor.company.lk`
    - `Kestrel`: the HTTPS certificate for that hostname
@@ -90,7 +87,7 @@ Create enrollment tokens in the console under **Agent management → New token**
 
 ### Scripted deployment (GPO / Intune / SCCM)
 
-Extract `SentinelDesk-Agent-1.2.1.zip` and run this elevated:
+Extract `SentinelDesk-Agent-1.2.2.zip` and run this elevated:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File install-agent.ps1 -ServerUrl https://monitor.company.lk `
@@ -112,7 +109,8 @@ for 30 minutes and the console is alerted.
 
 ## Features
 
-- **Tray agent on every PC:** visible shield icon with status, monitoring notice and contact support. Users cannot exit it.
+- **Tray agent on every PC:** visible shield icon with status, monitoring notice and contact support, in a modern menu
+  that follows the Windows light or dark setting. Users cannot exit it.
 - **Tamper protection:** services that only SYSTEM can stop or remove, a watchdog that restarts the agent, and alerts
   for stops, kills, changed files and changed service settings. Devices that go silent for more than 24 h raise an alert.
 - **Strong encryption:** TLS 1.2/1.3 with per-device certificates, AES-256-GCM encrypted data and signed policies,
@@ -139,6 +137,8 @@ for 30 minutes and the console is alerted.
   organisation → region → branch → department hierarchy.
 - **Console:** dashboard, live view, alerts and rules (email / webhook), reports with CSV export, admin users with
   roles and MFA, audit log, and light and dark themes.
+- **Bandwidth control for live data:** choose how often a computer sends live data while its page is open
+  (every 0.5 to 5 seconds, or off), with the expected bandwidth shown for each choice.
 - **Device location (optional):** off by default. When turned on, devices appear on the map with a 30-day trail.
 
 ## Privacy

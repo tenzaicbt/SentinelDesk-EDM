@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.2.2 — 2026-11-27
+
+### New
+
+- **Live view refresh rate.** In **Agent management → Live data**, Super Admins choose how often a computer sends
+  live data while someone has its device page open: every 0.5 seconds (as before), 1, 2 or 5 seconds, or *Off*
+  (the page then updates with heartbeats). Each choice shows the expected bandwidth, the change applies at once,
+  including to pages that are already open, and it is recorded in the audit log. Use a slower rate on busy or
+  metered branch links.
+- **New tray menu.** The tray menu has a modern look: the SentinelDesk logo with the computer's connection status at
+  the top, an icon for each item, rounded corners on Windows 11, and light or dark colours that follow the Windows
+  setting.
+
+### Improved
+
+- **Web console.** The console has been rebuilt and is now part of the server itself. It looks and works as before,
+  and it no longer needs a separate set of web files.
+- **Date and time pickers** in reports, schedules and "until a date" choices now follow the console's light and dark
+  theme instead of the browser's own pop-up.
+
+### Fixed
+
+- Drop-down lists and pickers inside a card or a dialog could open in the wrong place.
+- Chart labels no longer overlap on narrow charts.
+
 ## 1.2.1 — 2026-11-23
 
 ### New

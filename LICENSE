@@ -34,8 +34,8 @@ Website:           https://www.lordefx.com
    must keep them confidential and use them only to perform licensed work.
 
 6. Third-party components
-   The Software includes open-source components (for example .NET, ASP.NET Core, React,
-   Tailwind CSS, Recharts, Leaflet, Microsoft TraceEvent, Lucide icons, the Geist font and the
+   The Software includes open-source components (for example .NET, ASP.NET Core, Blazor,
+   Tailwind CSS, Leaflet, QRCoder, Microsoft TraceEvent, Lucide icons, the Geist font and the
    NSIS installer framework). Each is used under its own license, which continues to apply to
    that component. This license does not restrict rights granted by those licenses.
 
